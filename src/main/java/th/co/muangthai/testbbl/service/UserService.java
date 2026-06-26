@@ -78,6 +78,16 @@ public class UserService {
 
         return user;
     }
+    
+    public UserModel updateUser(Long userId, Request request) {
+    	UserModel user = restClient.put()
+                .uri(usersData + "/" + userId)
+                .body(request)
+                .retrieve()
+                .body(UserModel.class);
+    	
+    	return user;
+    }
 
 	
 }
